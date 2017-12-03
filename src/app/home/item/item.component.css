@@ -1,0 +1,10 @@
+
+#itemContent:hover
+{
+    border: 1px solid lightblue;
+}
+
+#itemContent
+{
+    border: 1px solid white;
+}

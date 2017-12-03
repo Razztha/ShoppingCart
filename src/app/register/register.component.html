@@ -1,0 +1,78 @@
+<div class="col-md-4"></div>
+<div class="col-md-4 shadow" style="background-color:whitesmoke;border-radius:10px;padding-bottom:20px;margin-left:10px;margin-right:10px;">
+  <h3 align="center"  style="padding-bottom:20px;">Create Your Account</h3>
+<form class="form-horizontal" (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+  
+  <div class="form-group ">
+    <label class="control-label col-sm-3" for="username">Username</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" required placeholder="Enter username" id="username" name="username" 
+      #username=ngModel [ngModel]="user.username">
+    </div>
+    <div class="col-sm-offset-4 col-sm-8" style="height:15px;min-height:15px;">
+    <div *ngIf="username.errors && (username.dirty || f.submitted)" style="font-size:12px;color:red;">
+  <div *ngIf="username.errors.required">
+    Username required
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="pwd">Password</label>
+    <div class="col-sm-9"> 
+      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" [ngModel]="user.password" required #password=ngModel minlength="4">
+    </div>
+     <div class="col-sm-offset-4 col-sm-8" style="height:15px;min-height:15px;">
+    <div *ngIf="password.errors && (password.dirty || f.submitted)" style="font-size:12px;color:red;">
+  <div *ngIf="password.errors.required">
+    Password required
+  </div>
+  <div *ngIf="password.errors.minlength">
+    Password require 4 minimum charactors
+  </div>
+  </div>
+  </div>
+  </div>
+
+   <div class="form-group">
+    <label class="control-label col-sm-3" for="cnpwd">Confirm Password</label>
+    <div class="col-sm-9"> 
+      <input type="password" class="form-control" id="cpassword" placeholder="Reenter password" name="cpassword" [ngModel]="user.password" required #cpassword=ngModel>
+    </div>
+ <div class="col-sm-offset-4 col-sm-8" style="height:15px;min-height:15px;">
+    <div *ngIf="cpassword.errors && (cpassword.dirty || f.submitted)" style="font-size:12px;color:red;">
+  <div *ngIf="cpassword.errors.required">
+    Confirm Password required
+  </div>
+  <div *ngIf="cpassword.errors.minlength">
+    Password require 4 minimum charactors
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="form-group"> 
+    <div class="col-sm-offset-3 col-sm-9">
+      <div class="checkbox">
+        <label><input type="checkbox" name="agree" [ngModel]="user.agree" required #agree=ngModel> Agree with Terms</label>
+      </div>
+    </div>
+     <div class="col-sm-offset-4 col-sm-8" style="height:15px;min-height:15px;">
+    <div *ngIf="agree.errors && (agree.dirty || f.submitted)" style="font-size:12px;color:red;">
+  <div *ngIf="agree.errors.required">
+    Please select agree
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="form-group"> 
+    <div class="col-sm-offset-3 col-sm-9" style="margin-top:5px;">
+      <button type="submit" class="btn btn-info">Register</button>
+       <button type="reset" class="btn btn-warning">Reset</button>
+    </div>
+  </div>
+  
+</form>
+</div>
+<div class="col-md-4"></div>

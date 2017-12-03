@@ -1,0 +1,13 @@
+    <div style="background-color:#EAE9E8;padding-top:10px;padding-bottom:5px;
+    width:48%;height:auto;float:left;margin-right:12px;border-radius:4px;padding-left:0px;margin-bottom:10px;"
+     *ngFor="let item of items" class="col-md-6" id="itemContent">
+      <div class="col-md-4" style="float:left;">
+          <img src="{{item.imageUrl}}" style="float:left;" alt="" height="80" width="80">
+      </div>
+        <div class="col-md-8">
+        <a style="cursor:pointer;"><p style="text-decoration:underline;color:orange;font-weight:bold;" [routerLink]="['detail']" [queryParams]="{itemId:item.itemId}" >{{item.name}}</p></a>
+        <p>{{item.description}}</p>
+        <p style="float:left;">{{item.price}}</p>
+        <button class="btn btn-info btn-sm pull-right" style="width:40%;">Add</button>
+        </div>
+    </div>
